@@ -21,10 +21,10 @@ Naudojimasis:
   Paleidus programą, vadovaukitės programos nurodymais ir įveskite reikiamus duomenis.
   
 Namų darbų įvertinimus galima įvesti keliais būdais:
-  • Žinant įvertinimų kiekį, bet nežinant įvertinimų;
-  • Žinant ir įvertinimų kiekį ir visus įvertinimus;
-  • Nežinant įvertinimų kiekio, bet žinant visus įvertinimus.
+      • Žinant įvertinimų kiekį, bet nežinant įvertinimų;
+      • Žinant ir įvertinimų kiekį ir visus įvertinimus;
+      • Nežinant įvertinimų kiekio, bet žinant visus įvertinimus.
 
 Egzamino įvertinimą taip pat galima įvesti keliais būdais:
-  • Žinant įvertinimą;
-  • Nežinant įvertinimo.
+      • Žinant įvertinimą;
+      • Nežinant įvertinimo.
