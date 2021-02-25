@@ -1,38 +1,41 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
-#include <time.h>
 #include <cmath>
 #include <vector>
+#include <random>
+#include <chrono>
 
-using std::cin;
-using std::cout;
-using std::endl;
-using std::string;
-using std::setw;
-using std::left;
-using std::fixed;
-using std::setprecision;
-using std::swap;
-using std::vector;
+using namespace std;
+
+using hrClock = chrono::high_resolution_clock;
+mt19937 mt(static_cast<long unsigned int>(hrClock::now().time_since_epoch().count()));
+uniform_int_distribution<int> dist(1, 10);
 
 const int nmax=50;
 
+//Saugomi studento duomenys
 struct Studentas {
     string vardas, pavarde; //vardas, pavarde
     float final; //galutinis pazymys
-    string vm; //ar galutinis generuojamas su vidurkiu ar mediana
+    string vm; //ar galutinis pazymys generuojamas su vidurkiu ar mediana
 };
-
+// funkcija, nuskaitanti studento varda ir pavarde
+void Name(Studentas &S){
+    cout << "Iveskite studento varda: ";
+    getline(cin, S.vardas);
+    cout << "Iveskite studento pavarde: ";
+    getline(cin, S.pavarde);
+}
+// funkcija, generuojanti atsitiktinius namu darbu ivertinimus
 void Generavimas(int n, vector<int> &ND){
-    srand(time(NULL));
     for (int i=0; i<n; i++){
-        ND.push_back(rand()%10+1);
+        ND.push_back(dist(mt));
         cout << ND[i] << " ";
     }
 }
-
-void Rikiavimas(int nd, vector<int> ND){
+// funkcija, surikiuojanti doumenis taip juos paruosdama medianos skaiciavimui
+void Rikiavimas(int nd, vector<int> &ND){
     for (int i=0; i<nd-1; i++){
         for (int j=i; j<nd; j++){
             if (ND[i] > ND[j])
@@ -40,7 +43,7 @@ void Rikiavimas(int nd, vector<int> ND){
         }
     }
 }
-
+// funkcija, skaiciuojanti ivertinimu mediana
 float Mediana(int nd, vector<int> ND){
     int a, b;
     float vid;
@@ -55,7 +58,7 @@ float Mediana(int nd, vector<int> ND){
     }
     return vid;
 }
-
+// funkcija, skaiciuojanti ivertinimu vidurki
 float Vidurkis(int nd, vector<int> ND){
     int suma=0;
     for (int i=0; i<nd; i++){
@@ -63,51 +66,13 @@ float Vidurkis(int nd, vector<int> ND){
     }
     return (suma/nd);
 }
-
-void Egzaminas(string a, int &egz) {
-    srand(time(NULL));
-    cout << "Ar studentas laike egzamina? (y/n) ";
-    cin >> a;
-    if (a == "y"){
-        cout << "Ar zinote egzamino rezultata? (y/n) ";
-        cin >> a;
-        if (a == "n"){
-            egz = rand()%10+1;
-            cout << "Sugeneruotas egzamino rezultatas: " << egz << endl;
-        }
-        else {
-            cout << "Iveskite egzamino ivertinima: ";
-            cin >> egz;
-        }
-    }
-}
-
-void Output (Studentas M[], int n){
-    cout << "--------------------------------------------------------------------" << endl;
-    cout << setw(14) << left << "| Vardas" << setw(14) << left << "| Pavarde"
-    << setw(39) << left << "| Galutinis (Vid.) / Galutinis (Med.)" << "|" << endl;
-    cout << "====================================================================" << endl;
-    for (int i=0; i<n; i++){
-        cout << "| " << setw(12) << left << M[i].vardas << "| " << setw(12) << left << M[i].pavarde
-        << "| ";
-        if (M[i].vm == "v") cout << setw(37) << left << fixed << setprecision(2) << M[i].final << "|" << endl;
-        else cout << setw(19) << left << " " << setw(18) << left << fixed << setprecision(2) << M[i].final << "|" << endl;
-    }
-    cout << "--------------------------------------------------------------------" << endl;
-}
-
-int main(){
-    Studentas *M = new Studentas[nmax]; //masyvus i sujungta sarasa
-    bool repeat = true;
-    int j=0, nd=0, egz=0, paz;
-    vector<int> ND;
-    float vid=0;
-    string a, b;
-    do {
-        cout << "Iveskite studento varda ir pavarde: ";
-        cin >> M[j].vardas >> M[j].pavarde;
-
-        cout << "Ar zinote kiek namu darbu atliko studentas? (y/n) ";
+// funkcija, apdorojanti visus duomenis susijusius su namu darbais
+void Namu_darbai(Studentas M[], float &vid, int j){
+    int nd=0;       // atliktu namu darbu kiekis
+    int paz;        // pazymiai (suvedinejimui)
+    vector<int> ND; // namu darbu pazymiai
+    string a, b;    // tarpiniai kintamieji, igyjantys viena is dvieju reiksmiu pvz. (y/n)
+    cout << "Ar zinote kiek namu darbu atliko studentas? (y/n) ";
         cin >> a;
         if (a == "y"){
             cout << "Iveskite atliktu namu darbu kieki: ";
@@ -155,20 +120,80 @@ int main(){
             }
             else if (M[j].vm == "v") vid = Vidurkis(nd, ND);
         }
-        Egzaminas (a, egz);
+}
+//funkcija, apdorojanti duomenis, susijusius su egzaminu
+int Egzaminas() {
+    int egz=0;
+    string a;
+    cout << "Ar studentas laike egzamina? (y/n) ";
+    cin >> a;
+    if (a == "y"){
+        cout << "Ar zinote egzamino rezultata? (y/n) ";
+        cin >> a;
+        if (a == "n"){
+            egz = dist(mt);
+            cout << "Sugeneruotas egzamino rezultatas: " << egz << endl;
+        }
+        else {
+            cout << "Iveskite egzamino ivertinima: ";
+            cin >> egz;
+        }
+    }
+    return egz;
+}
+// funkcija, isvedanti rezultatus i konsole, lenteles pavidalu
+void Output (Studentas M[], int n){
+    int ilg=M[0].vardas.length();
+    for (int i=1; i<n; i++){
+        if (M[i].vardas.length() > ilg)
+            ilg = M[i].vardas.length();
+    }
+    int k=68;
+    int p=14;
+    if (ilg > 11){
+        p = ilg+3;
+        k = k-28+(2*p);
+    }
+    for (int i=0; i<k; i++)
+        cout << "-";
+    cout << endl;
+    cout << setw(p) << left << "| Vardas" << setw(p) << left << "| Pavarde"
+    << setw(39) << left << "| Galutinis (Vid.) / Galutinis (Med.)" << "|" << endl;
+    for (int i=0; i<k; i++)
+        cout << "=";
+    cout << endl;
+    for (int i=0; i<n; i++){
+        cout << "| " << setw(p-2) << left << M[i].vardas << "| " << setw(p-2) << left << M[i].pavarde
+        << "| ";
+        if (M[i].vm == "v") cout << setw(37) << left << fixed << setprecision(2) << M[i].final << "|" << endl;
+        else cout << setw(19) << left << " " << setw(18) << left << fixed << setprecision(2) << M[i].final << "|" << endl;
+    }
+    for (int i=0; i<k; i++)
+        cout << "-";
+    cout << endl;
+}
 
+int main(){
+    Studentas *M = new Studentas[nmax];
+    bool repeat = true; // ciklas kartojamas, kol igis reiksme false
+    int j=0;            // studento indeksas
+    int egz;            // egzamino pazymys
+    float vid=0;        // namu darbu vidurkis
+    string a;           // tarpiniai kintamieji, igyjantys viena is dvieju reiksmiu, pateiktu naudotojui pvz. (y/n)
+    do {
+        Name(M[j]);
+        Namu_darbai(M, vid, j);
+        egz = Egzaminas();
         M[j].final = ((vid)*0.4) + (egz*0.6);
         j++;
-        vid = 0;
         cout << "Ar norite ivesti kito studento duomenis? (y/n) ";
         cin >> a;
-        if (a == "n") repeat=false;
-        nd=0;
+        if (a == "n")
+            repeat=false;
+        vid=0;
         egz=0;
-
+        cin.ignore();
     } while (repeat);
-
     Output(M, j);
-
     return 0;
 }
