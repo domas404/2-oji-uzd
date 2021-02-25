@@ -4,8 +4,8 @@ Programos versija v0.1.1
 
 Papildymai nuo versijos v0.1:
 
-      • Pakeistas atsitiktiniu reikšmių generavimo būdas;
-      • Ištaisytos kelios klaidos, dėl kurių praeitoje versijoje buvo atliekami netikslūs skaičiavimai;
+      • Pakeistas atsitiktinių reikšmių generavimo būdas;
+      • Ištaisytos kelios klaidos, dėl kurių praeitoje versijoje galėjo būti atliekami netikslūs skaičiavimai;
       • Šiek tiek pakeista programos struktūra;
 
 Ši programa apskaičiuoja studento galutinį įvertinimą pagal įvestus duomenis (namų darbų ir egzamino įvertinimus) ir pateikia rezultatą lentelėje.
