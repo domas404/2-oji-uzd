@@ -1,6 +1,6 @@
 # 2-oji-užduotis
 
-Pirmoji programos versija (v0.1.1)
+Programos versija v0.1.1
 
 Papildymai nuo versijos v0.1:
 
