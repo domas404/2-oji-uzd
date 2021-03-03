@@ -61,7 +61,7 @@ float Vidurkis(int nd, vector<int> ND){
     return (float)suma/nd;
 }
 // funkcija, apdorojanti visus duomenis susijusius su namu darbais
-void Namu_darbai(Studentas M, float &vid){
+void Namu_darbai(Studentas &M, float &vid){
     int nd=0;       // atliktu namu darbu kiekis
     int paz;        // pazymiai (suvedinejimui)
     string a, b;    // tarpiniai kintamieji, igyjantys viena is dvieju reiksmiu pvz. (y/n)
@@ -150,7 +150,7 @@ void outputConsole (Studentas M[], int n){
     for (int i=0; i<n; i++){
         cout << "| " << setw(p-2) << left << M[i].vardas << "| " << setw(p-2) << left << M[i].pavarde << "| ";
         if (M[i].vm == "v") cout << setw(37) << left << fixed << setprecision(2) << M[i].final << "|" << endl;
-        else cout << setw(19) << left << " " << setw(18) << left << fixed << setprecision(2) << M[i].final << "|" << endl;
+        else if (M[i].vm == "m") cout << setw(19) << left << " " << setw(18) << left << fixed << setprecision(2) << M[i].final << "|" << endl;
     }
     for (int i=0; i<k; i++)
         cout << "-";
@@ -196,7 +196,8 @@ void Write_txt (int n, int nd){
             k << setw(5) << ND[j] << " ";
         }
         egz=dist(mt);
-        k << egz << endl;
+        k << egz;
+        if (i != n-1) k << endl;
         vardas = "Vardas";
         pavarde = "Pavarde";
         ND.clear();
@@ -204,7 +205,7 @@ void Write_txt (int n, int nd){
     k.close();
 }
 // funkcija, kuri nurodo, kiek laiko buvo generuojamas studentu sarasas
-void Case(int a, int nd){
+void Time(int a, int nd){
     clock_t pradzia, pabaiga;
     pradzia = clock();
     Write_txt(a, nd);
@@ -213,23 +214,32 @@ void Case(int a, int nd){
     cout << 1.0 * (pabaiga - pradzia) / CLOCKS_PER_SEC << " s" << endl;
 }
 // funkcija nuskaitanti duomenis is tektinio failo
-void Read(Studentas M[], int nd, int ap){
-    ifstream k ("kursiokai.txt");
+void Read(Studentas M[], int nd, int &ap, string t){
+    ifstream k (t);
     int egz, p;
     float vid=0;
-    vector<int> ND;
+    string line;
+    int i=0;
     if (k.is_open()){
-        for (int j=0; j<ap; j++){
-            k >> M[j].vardas >> M[j].pavarde;
-            for (int i=0; i<nd; ++i){
-                k >> p;
-                M[j].ND.push_back(p);
+        while(!k.eof()){
+            getline(k, line);
+            istringstream iss(line);
+            iss >> M[i].vardas >> M[i].pavarde;
+            for (int j=0; j<nd; j++){
+                iss >> p;
+                M[i].ND.push_back(p);
             }
-            k >> M[j].egz;
+            iss >> M[i].egz;
+            i++;
+            ap++;
         }
     }
     else cout << "Neimanoma atidaryti failo" << endl;
     k.close();
+}
+// nurodomi rikiavimo kriterijai
+bool wayToSort(Studentas a, Studentas b) {
+    return a.vardas < b.vardas;    // nurodoma rikiuoti pagal varda didejanciai (abeceles tvarka)
 }
 // funkcija, apskaiciuojanti galutinius studentu rezultatus
 void Calculate(Studentas M[], int ap, int nd){
@@ -239,7 +249,8 @@ void Calculate(Studentas M[], int ap, int nd){
     cin >> vm;
     clock_t pradzia, pabaiga;
     pradzia = clock();
-    M[0].vm = vm;
+    for (int i=0; i<ap; i++)
+        M[i].vm = vm;
     if (vm == "v"){
         for (int i=0; i<ap; i++){
             vid = Vidurkis(nd, M[i].ND);
@@ -255,10 +266,14 @@ void Calculate(Studentas M[], int ap, int nd){
             vid=0;
         }
     }
+
+    sort(M, M + ap, wayToSort);   // surikiuoja studentus pagal varda
+
     pabaiga = clock();
     cout << setw(45) << left << "Galutiniu ivertinimu skaiciavimai uztruko: ";
     cout << 1.0 * (pabaiga - pradzia) / CLOCKS_PER_SEC << " s" << endl;
 }
+
 int main(){
     Studentas *M = new Studentas[nmax];
     bool repeat = true; // ciklas kartojamas, kol igis reiksme false
@@ -269,37 +284,55 @@ int main(){
     cin >> b;
     cin.ignore();
     int sk, nd;        // sk - apimties pasirinkimas, nd - namu darbu ivertinimu kiekis
-    int ap;            // studentu skaicius
+    int ap=0;          // studentu skaicius
+    string t;          // rankiniu budu ivestas tekstinio failo pavadinimas
     if (b == "f"){
-        cout << "Pasirinkite norimu sugeneruoti studentu skaiciu: " << endl;
-        cout << "[1] 10'000   [2] 100'000   [3] 1'000'000   [4] 10'000'000" << endl;
-        cin >> sk;
-        cout << "Kiek namu darbu pazymiu turi kiekvienas studentas? ";
-        cin >> nd;
-        switch(sk){
-            case 1:
-                ap = 10000;
-                Case(ap, nd);
-                break;
-            case 2:
-                ap = 100000;
-                Case(ap, nd);
-                break;
-            case 3:
-                ap = 1000000;
-                Case(ap, nd);
-                break;
-            case 4:
-                ap = 10000000;
-                Case(ap, nd);
-                break;
+        cout << "Duomenu failas jau [e]gzistuoja, ar [s]ugeneruoti? ";
+        cin >> a;
+        if (a == "e"){
+            cout << "Iveskite failo pavadinima: ";
+            cin >> t;
+            cout << "Kiek namu darbu pazymiu turi kiekvienas studentas? ";
+            cin >> nd;
+            clock_t pr, pab;
+            pr = clock();
+            Read(M, nd, ap, t+".txt");
+            pab = clock();
+            cout << setw(45) << left << "Duomenu nuskaitymas uztruko: ";
+            cout << 1.0 * (pab - pr) / CLOCKS_PER_SEC << " s" << endl;
         }
-        clock_t pradzia, pabaiga;
-        pradzia = clock();
-        Read(M, nd, ap);
-        pabaiga = clock();
-        cout << setw(45) << left << "Duomenu nuskaitymas uztruko: ";
-        cout << 1.0 * (pabaiga - pradzia) / CLOCKS_PER_SEC << " s" << endl;
+        else if (a == "s"){
+            cout << "Pasirinkite norimu sugeneruoti studentu skaiciu: " << endl;
+            cout << "[1] 10'000   [2] 100'000   [3] 1'000'000   [4] 10'000'000" << endl;
+            cin >> sk;
+            cout << "Kiek namu darbu pazymiu turi kiekvienas studentas? ";
+            cin >> nd;
+            switch(sk){
+                case 1:
+                    ap = 10000;
+                    Time(ap, nd);
+                    break;
+                case 2:
+                    ap = 100000;
+                    Time(ap, nd);
+                    break;
+                case 3:
+                    ap = 1000000;
+                    Time(ap, nd);
+                    break;
+                case 4:
+                    ap = 10000000;
+                    Time(ap, nd);
+                    break;
+            }
+            ap=0;
+            clock_t pradzia, pabaiga;
+            pradzia = clock();
+            Read(M, nd, ap, "kursiokai.txt");
+            pabaiga = clock();
+            cout << setw(45) << left << "Duomenu nuskaitymas uztruko: ";
+            cout << 1.0 * (pabaiga - pradzia) / CLOCKS_PER_SEC << " s" << endl;
+        }
 
         Calculate(M, ap, nd);
 
@@ -316,15 +349,15 @@ int main(){
             Namu_darbai(M[j], vid);
             Egzaminas(M[j]);
             M[j].final = ((vid)*0.4) + (M[j].egz*0.6);
-            j++;
             cout << "Ar norite ivesti kito studento duomenis? (y/n) ";
             cin >> a;
             if (a == "n")
                 repeat=false;
+            else j++;
             vid=0;
             cin.ignore();
         } while (repeat);
-        outputConsole(M, j);
+        outputConsole(M, j+1);
     }
     delete[] M;
     return 0;
