@@ -1,10 +1,10 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
-#include <cmath>
 #include <vector>
 #include <random>
 #include <chrono>
+#include <algorithm>
 
 using namespace std;
 
@@ -34,21 +34,12 @@ void Generavimas(int n, vector<int> &ND){
         cout << ND[i] << " ";
     }
 }
-// funkcija, surikiuojanti doumenis taip juos paruosdama medianos skaiciavimui
-void Rikiavimas(int nd, vector<int> &ND){
-    for (int i=0; i<nd-1; i++){
-        for (int j=i; j<nd; j++){
-            if (ND[i] > ND[j])
-                swap(ND[i], ND[j]);
-        }
-    }
-}
 // funkcija, skaiciuojanti ivertinimu mediana
 float Mediana(int nd, vector<int> ND){
     int a, b;
     float vid;
     if (nd%2==1){
-        a = (float)ceil(nd/2);
+        a = nd/2;
         vid = ND[a];
     }
     else {
@@ -64,7 +55,7 @@ float Vidurkis(int nd, vector<int> ND){
     for (int i=0; i<nd; i++){
         suma += ND[i];
     }
-    return (suma/nd);
+    return (float)suma/nd;
 }
 // funkcija, apdorojanti visus duomenis susijusius su namu darbais
 void Namu_darbai(Studentas M[], float &vid, int j){
@@ -115,11 +106,12 @@ void Namu_darbai(Studentas M[], float &vid, int j){
             cout << "Ivertinimui naudoti [v]idurki ar [m]ediana? ";
             cin >> M[j].vm;
             if (M[j].vm == "m"){
-                Rikiavimas (nd, ND);;
+                sort(ND.begin(), ND.end());
                 vid = Mediana(nd, ND);
             }
             else if (M[j].vm == "v") vid = Vidurkis(nd, ND);
         }
+    ND.clear();
 }
 //funkcija, apdorojanti duomenis, susijusius su egzaminu
 int Egzaminas() {
@@ -195,5 +187,6 @@ int main(){
         cin.ignore();
     } while (repeat);
     Output(M, j);
+    delete[] M;
     return 0;
 }
