@@ -6,7 +6,7 @@ Pakeitimai nuo versijos v0.1.1:
 
       • Ištaisytos dinaminės atminties panaudojimo klaidos;
       • Dabar rikiavimui naudojama implementuota sort() funkcija iš standartinės šablonų bibliotekos;
-      • Minimalūs pataisymai medianos ir vidurkio skaičiavimo funkcijose;
+      • Pataisytos medianos ir vidurkio skaičiavimo funkcijos;
 
 Ši programa apskaičiuoja studento galutinį įvertinimą pagal įvestus duomenis (namų darbų ir egzamino įvertinimus) ir pateikia rezultatą lentelėje.
 
