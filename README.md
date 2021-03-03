@@ -1,12 +1,12 @@
 # 2-oji-užduotis
 
-Programos versija v0.1.1
+Programos versija v0.1.2
 
-Papildymai nuo versijos v0.1:
+Pakeitimai nuo versijos v0.1.1:
 
-      • Pakeistas atsitiktinių reikšmių generavimo būdas;
-      • Ištaisytos kelios klaidos, dėl kurių praeitoje versijoje galėjo būti atliekami netikslūs skaičiavimai;
-      • Šiek tiek pakeista programos struktūra;
+      • Ištaisytos dinaminės atminties panaudojimo klaidos;
+      • Dabar rikiavimui naudojama implementuota sort() funkcija iš standartinės šablonų bibliotekos;
+      • Minimalūs pataisymai medianos ir vidurkio skaičiavimo funkcijose;
 
 Ši programa apskaičiuoja studento galutinį įvertinimą pagal įvestus duomenis (namų darbų ir egzamino įvertinimus) ir pateikia rezultatą lentelėje.
 
@@ -28,11 +28,11 @@ Naudojimasis:
   
 Namų darbų įvertinimus galima įvesti keliais būdais:
       
-      • Žinant įvertinimų kiekį, bet nežinant įvertinimų;
+      • Žinant įvertinimų kiekį, bet nežinant įvertinimų (bus atsitiktinai sugeneruojami);
       • Žinant ir įvertinimų kiekį ir visus įvertinimus;
       • Nežinant įvertinimų kiekio, bet žinant visus įvertinimus.
 
 Egzamino įvertinimą taip pat galima įvesti keliais būdais:
       
       • Žinant įvertinimą;
-      • Nežinant įvertinimo.
+      • Nežinant įvertinimo (bus atsitiktinai sugeneruojamas).
