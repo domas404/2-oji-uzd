@@ -7,6 +7,7 @@ Pakeitimai nuo versijos v0.1.2:
       • Galimybė nuskaityti duomenis iš failo;
       • Galimybė sugeneruoti naują failą su pasirinktu studentų skaičiumi;
       • Galimybė rezultatus įrašyti į tekstinį failą.
+      • Galimybė išrikiuoti studentų sąrašą pagal vardą;
 
 Ši programa apskaičiuoja studento galutinį įvertinimą pagal vartotojo įvestus arba iš failo nuskaitytus
 duomenis (namų darbų ir egzamino įvertinimus) ir pateikia rezultatus lentelės forma.
