@@ -5,7 +5,7 @@ Programos versija v0.2
 Pakeitimai nuo versijos v0.1.2:
 
       • Galimybė nuskaityti duomenis iš failo;
-      • Galimybė sugeneruoti naują failą su pasirinktu studentų skaičiumi [10'000; 10'000'000];
+      • Galimybė sugeneruoti naują failą su pasirinktu studentų skaičiumi;
       • Galimybė rezultatus įrašyti į tekstinį failą.
 
 Ši programa apskaičiuoja studento galutinį įvertinimą pagal vartotojo įvestus arba iš failo nuskaitytus
