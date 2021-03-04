@@ -1,13 +1,14 @@
 # 2-oji-užduotis
 
-Programos versija v0.2
+Programos versija v0.3
 
-Pakeitimai nuo versijos v0.1.2:
+Pakeitimai nuo versijos v0.2:
 
-      • Galimybė nuskaityti duomenis iš failo;
-      • Galimybė sugeneruoti naują failą su pasirinktu studentų skaičiumi;
-      • Galimybė rezultatus įrašyti į tekstinį failą.
-      • Galimybė išrikiuoti studentų sąrašą pagal vardą;
+      • Programa suskaidyta į skirtingus *.cpp ir *.h tipo failus.
+      • Naudojamos "exceptions":
+            1) tikrinant ar nuskaitymo metu pavyksta atidaryti skaitomąjį failą;
+            2) tikrinant ar vartotjo suvedinėjami įvertinimai patenka į intervalą [1; 10];
+      • Pakoreguota programos struktūra;
 
 Ši programa apskaičiuoja studento galutinį įvertinimą pagal vartotojo įvestus arba iš failo nuskaitytus
 duomenis (namų darbų ir egzamino įvertinimus) ir pateikia rezultatus lentelės forma.
@@ -15,13 +16,14 @@ duomenis (namų darbų ir egzamino įvertinimus) ir pateikia rezultatus lentelė
 Diegimas ir paleidimas:
 
    Atsisiųskite ir išarchyvuokite release'o zip failą.
-   Atverkite komandinę eilutę (cmd) ir nurodykite 'main.cpp' failo adresą kompiuteryje.
+   Atverkite komandinę eilutę (cmd) ir nurodykite šio failo adresą kompiuteryje.
 
         cd /.../'folder_name'
 
    Į komandinę eilutę įveskite šias komandas:
 
-        g++ main.cpp -o main
+        g++ -c functions.cpp functions_for_files.cpp
+        g++ -o main main.cpp functions.o functions_for_files.o
         ./main
  
 Naudojimasis:
