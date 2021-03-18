@@ -13,8 +13,6 @@
 using namespace std;
 using hrClock = chrono::high_resolution_clock;
 
-const int nmax=10000000;    //maksimalus studentu skaicius
-
 //Saugomi studento duomenys
 struct Studentas {
     string vardas, pavarde; // vardas, pavarde
@@ -25,12 +23,18 @@ struct Studentas {
 };
 
 double myRandom();
-void readName(Studentas &S);
+float Final(float vid, float egz);
 float Mediana(int nd, vector<int> ND);
 float Vidurkis(int nd, vector<int> ND);
-float Final(float vid, float egz);
-void Namu_darbai(Studentas &M, float &vid);
+void AssignVid(Studentas &A, int nd);
+void AssignMed(Studentas &A, int nd);
+void sortStudents(vector<Studentas> &M, int ap);
+bool wayToSort(Studentas a, Studentas b);
+
+void usingConsole(vector<Studentas> M, Studentas A);
+void readName(Studentas &S);
+Studentas Namu_darbai(float vid);
 void Egzaminas(Studentas &M);
-void outputConsole (Studentas M[], int n);
+void outputConsole(vector<Studentas> M, int n);
 
 #endif
