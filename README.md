@@ -21,8 +21,8 @@ Diegimas ir paleidimas:
 
    Į komandinę eilutę įveskite šias komandas:
 
-        g++ -c functions.cpp functions_for_files.cpp
-        g++ -o main main.cpp functions.o functions_for_files.o
+        g++ -c calculations.cpp testing.cpp
+        g++ -o main main.cpp calculations.o testing.o
         
    Paleidžiant programą nurodykite:
       1) kiek generuojamame studentų sąraše kiekvienas studentas turi namų darbų;
