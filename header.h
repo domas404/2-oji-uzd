@@ -31,10 +31,4 @@ void AssignMed(Studentas &A, int nd);
 void sortStudents(vector<Studentas> &M, int ap);
 bool wayToSort(Studentas a, Studentas b);
 
-void usingConsole(vector<Studentas> M, Studentas A);
-void readName(Studentas &S);
-Studentas Namu_darbai(float vid);
-void Egzaminas(Studentas &M);
-void outputConsole(vector<Studentas> M, int n);
-
 #endif
