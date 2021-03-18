@@ -70,14 +70,10 @@ void readFile(vector<Studentas> &M, int nd, string t, string vm){
                     A.ND.push_back(p);
                 }
                 iss >> A.egz;
-                if (vm == "v"){
+                if (vm == "v")
                     AssignVid(A, nd);
-                    A.vm=vm;
-                }
-                else if (vm == "m"){
+                else if (vm == "m")
                     AssignMed(A, nd);
-                    A.vm=vm;
-                }
                 M.push_back(A);
                 i++;
                 ap++;
@@ -95,17 +91,17 @@ void readFile(vector<Studentas> &M, int nd, string t, string vm){
     cout << 1.0 * (pabaiga - pradzia) / CLOCKS_PER_SEC << " s" << endl;
 }
 // skaiciuojamas protingu ir nelabai studentu isvedimo laikas
-void outputTime(int ap, vector<Studentas> &G, int size, string title, string league){
+void outputTime(int ap, vector<Studentas> &G, int size, string title, string league, string vm){
     league += " rasymas i tekstini faila uztruko: ";
     clock_t pr, pab;
     pr = clock();
-    outputFile(G, size, title);
+    outputFile(G, size, title, vm);
     pab = clock();
     cout << setw(8) << right << ap << setw(50) << left << league;
     cout << 1.0 * (pab - pr) / CLOCKS_PER_SEC << " s" << endl;
 }
 // studentu skirstymas i protingus ir ne
-void distinctStudents(vector<Studentas> &M, int ap){
+void distinctStudents(vector<Studentas> &M, int ap, string vm){
     clock_t pr, pab;
     pr = clock();
     vector<Studentas> Kietiakai;
@@ -129,9 +125,10 @@ void distinctStudents(vector<Studentas> &M, int ap){
     pab = clock();
     cout << setw(8) << right << ap << setw(50) << left << " studentu skirstymas i dvi grupes uztruko: ";
     cout << 1.0 * (pab - pr) / CLOCKS_PER_SEC << " s" << endl;
-    outputTime(ap, Kietiakai, size_1, p+".txt", " kietiaku");
+
+    outputTime(ap, Kietiakai, size_1, p+".txt", " kietiaku", vm);
     Kietiakai.clear();
-    outputTime(ap, Varguoliai, size_2, t+".txt", " varguoliu");
+    outputTime(ap, Varguoliai, size_2, t+".txt", " varguoliu", vm);
     Varguoliai.clear();
 }
 // testuojami veiksmai su tam tikro dydzio studentu sarasu
@@ -143,7 +140,7 @@ void execusionTest(int ap, string title, string result, int nd, string vm){
     generateFile(ap, nd, title);
     readFile(M, nd, title, vm);
     sortStudents(M, ap);
-    distinctStudents(M, ap);
+    distinctStudents(M, ap, vm);
     M.clear();
     pab = clock();
     cout << endl;
@@ -152,13 +149,13 @@ void execusionTest(int ap, string title, string result, int nd, string vm){
     cout << endl;
 }
 // i tekstini faila isvedami rezultatai
-void outputFile(vector<Studentas> &M, int n, string t){
+void outputFile(vector<Studentas> &M, int n, string t, string vm){
     ofstream r(t);
     int k=57, p=18;
     r  << setw(p) << left << "Vardas" << setw(p) << left << "Pavarde";
-    if (M[0].vm == "v")
+    if (vm == "v")
         r << setw(20) << left << "Galutinis (Vid.)" << endl;
-    else if (M[0].vm == "m")
+    else if (vm == "m")
         r << setw(20) << left << "Galutinis (Med.)" << endl;
     for (int i=0; i<k; i++)
         r << "-";
