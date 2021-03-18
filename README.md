@@ -4,6 +4,8 @@ Programos versija v0.4
 
 Ši versija skirta programos spartumo testavimui.
 
+Programos veikimas:
+
 Programa sugeneruoja 5 skirtingų dydžių studentų sąrašus ir apskaičiuoja studentų galutinius
 įvertinimus pagal sugeneruotus duomenis (namų darbų ir egzamino įvertinimus).
 Pagal galutinius įvertinimus studentai suskirstomi į dvi grupes:
