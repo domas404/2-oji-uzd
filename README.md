@@ -1,17 +1,14 @@
 # 2-oji-užduotis
 
-Programos versija v0.3
+Programos versija v0.4
 
-Pakeitimai nuo versijos v0.2:
+Ši versija skirta programos spartumo testavimui.
 
-      • Programa suskaidyta į skirtingus *.cpp ir *.h tipo failus.
-      • Naudojamos "exceptions":
-            1) tikrinant ar nuskaitymo metu pavyksta atidaryti skaitomąjį failą;
-            2) tikrinant ar vartotjo suvedinėjami įvertinimai patenka į intervalą [1; 10];
-      • Pakoreguota programos struktūra;
-
-Ši programa apskaičiuoja studento galutinį įvertinimą pagal vartotojo įvestus arba iš failo nuskaitytus
-duomenis (namų darbų ir egzamino įvertinimus) ir pateikia rezultatus lentelės forma.
+Programa sugeneruoja 5 skirtingų dydžių studentų sąrašus ir apskaičiuoja studentų galutinius
+įvertinimus pagal sugeneruotus duomenis (namų darbų ir egzamino įvertinimus).
+Pagal galutinius įvertinimus studentai suskirstomi į dvi grupes:
+      1) "kietiakai" - kurių galutinis įvertinimas >= 5;
+      2) "varguoliai" - kurių įvertinimas < 5.
 
 Diegimas ir paleidimas:
 
@@ -24,27 +21,15 @@ Diegimas ir paleidimas:
 
         g++ -c functions.cpp functions_for_files.cpp
         g++ -o main main.cpp functions.o functions_for_files.o
-        ./main
- 
-Naudojimasis:
- 
-  Paleidus programą, vadovaukitės programos nurodymais ir įveskite reikiamus duomenis.
-  
-Programai paskirti duomenis galima trimis būdais:
-
-      • Visus duomenis suvedinėti rankiniu būdu;
-      • Nuskaityti duomenis iš egzistuojančio tekstinio failo;
-      • Nuskaityti duomenis iš naujo failo, sugeneruoto pagal pasirinktus parametrus;
-
-Duomenų įvedimas rankiniu būdu:
-
-      Namų darbų įvertinimus galima įvesti keliais būdais:
+        
+   Paleidžiant programą nurodykite:
+      1) kiek generuojamame studentų sąraše kiekvienas studentas turi namų darbų;
+      2) įvertinimų skaičiavimui naudoti vidurkį ar medianą [v/m].
+   Pvz:
+   
+        ./main 10 v
+        
+   Taip pat galite pasinaudoti makefile'u:
       
-      • Žinant įvertinimų kiekį, bet nežinant įvertinimų (bus atsitiktinai sugeneruojami);
-      • Žinant ir įvertinimų kiekį ir visus įvertinimus;
-      • Nežinant įvertinimų kiekio, bet žinant visus įvertinimus.
-
-      Egzamino įvertinimą taip pat galima įvesti keliais būdais:
-      
-      • Žinant įvertinimą;
-      • Nežinant įvertinimo (bus atsitiktinai sugeneruojamas).
+        mingw32-make
+        ./main 10 v
