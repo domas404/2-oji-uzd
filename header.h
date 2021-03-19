@@ -18,7 +18,6 @@ struct Studentas {
     string vardas, pavarde; // vardas, pavarde
     vector<int> ND;         // namu darbu ivertinimai
     int egz;                // egzamino rezultatas
-    string vm;              // ar galutinis pazymys generuojamas su vidurkiu ar mediana
     float final;            // galutinis pazymys
 };
 
