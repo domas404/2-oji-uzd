@@ -3,7 +3,7 @@
 
 // nurodomi rikiavimo kriterijai 
 bool wayToSort(Studentas a, Studentas b) {
-    return a.final < b.final;    // nurodoma rikiuoti pagal varda didejanciai (abeceles tvarka)
+    return a.final > b.final;    // nurodoma rikiuoti pagal varda didejanciai (abeceles tvarka)
 }
 // atsitiktiniu skaiciu generavimo funkcija
 double myRandom(){
