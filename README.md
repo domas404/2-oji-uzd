@@ -1,6 +1,11 @@
 # 2-oji-užduotis
 
-Programos versija v0.4
+Programos versija v0.4.1
+
+Pakeitimai nuo v0.4:
+
+      • Pakeista studentų skirstymo funkcija;
+      • Aptvarkytas programos kodas (pašalinti keli nenaudojami kintamieji)
 
 Ši versija skirta programos spartumo testavimui.
 
