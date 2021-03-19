@@ -100,26 +100,25 @@ void outputTime(int ap, vector<Studentas> &G, int size, string title, string lea
     cout << setw(8) << right << ap << setw(50) << left << league;
     cout << 1.0 * (pab - pr) / CLOCKS_PER_SEC << " s" << endl;
 }
-// studentu skirstymas i protingus ir ne
+// studentu skirstymas i dvi grupes (kietiakus ir varguolius)
 void distinctStudents(vector<Studentas> &M, int ap, string vm){
     clock_t pr, pab;
     pr = clock();
     vector<Studentas> Kietiakai;
     vector<Studentas> Varguoliai;
-    Kietiakai.reserve(ap*0.6);
+    Kietiakai.reserve(ap*0.7);
     int size_1=0, size_2=0;
-    string p="kietiakai";
-    string t="varguoliai";
+    string p=".\\kietiakai\\kietiakai";
+    string t=".\\varguoliai\\varguoliai";
     p += to_string(ap);
     t += to_string(ap);
-    int j=ap-1;
-
+    int j=0;
     while (M[j].final >= 5){
         Kietiakai.push_back(M[j]);
         ++size_1;
-        M.pop_back();
-        --j;
+        ++j;
     }
+    M.erase(M.begin(), M.begin()+size_1);
     Varguoliai.swap(M);
     size_2 = Varguoliai.size();
     pab = clock();
@@ -132,7 +131,7 @@ void distinctStudents(vector<Studentas> &M, int ap, string vm){
     Varguoliai.clear();
 }
 // testuojami veiksmai su tam tikro dydzio studentu sarasu
-void execusionTest(int ap, string title, string result, int nd, string vm){
+void execusionTest(int ap, string title, int nd, string vm){
     clock_t pr, pab;
     pr = clock();
     vector<Studentas> M;
