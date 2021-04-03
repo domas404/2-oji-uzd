@@ -9,6 +9,10 @@ Pakeitimai nuo v0.4:
 
 Ši versija skirta programos spartumo testavimui.
 
+| Funkcija             | 1'000 | 10'000 | 100'000 | 1'000'000 | 10'000'000 |
+| -------------------- | ----- | ------ | ------- | --------- | ---------- |
+| Sąrašo generavimas   | 0.02  | 0.102  | 0.91    | 8.921     | 88.129     |
+
 Programos veikimas:
 
 Programa sugeneruoja 5 skirtingų dydžių studentų sąrašus ir apskaičiuoja studentų galutinius
