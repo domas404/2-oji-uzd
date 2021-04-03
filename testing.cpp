@@ -107,7 +107,6 @@ void distinctStudents(deque<Studentas> &M, int ap, string vm){
     auto pr = chrono::high_resolution_clock::now();
     deque<Studentas> Kietiakai;
     deque<Studentas> Varguoliai;
-    // Kietiakai.reserve(ap*0.7);
     int size_1=0, size_2=0;
     string p=".\\kietiakai\\kietiakai";
     string t=".\\varguoliai\\varguoliai";
@@ -122,7 +121,6 @@ void distinctStudents(deque<Studentas> &M, int ap, string vm){
     M.erase(M.begin(), M.begin()+size_1);
     cout << M[0].vardas << " " << M[0].final << endl;
     Varguoliai.assign(M.begin(), M.end()-1);
-    // Varguoliai.swap(M);
     size_2 = Varguoliai.size();
     auto pab = chrono::high_resolution_clock::now();
     double time_taken = chrono::duration_cast<chrono::nanoseconds>(pab - pr).count();
