@@ -9,6 +9,11 @@ Pakeitimai nuo v0.4:
 
 Ši versija skirta programos spartumo testavimui.
 
+Testo rezultatai, kai:
+
+      namų darbų skaičius kiekvienam studentui - 10;
+      galutinis pažymys skaičiuojamas pagal vidurkį.
+
 |                               | 1'000   | 10'000  | 100'000 | 1'000'000 | 10'000'000 |
 | ----------------------------- | :---:   | :---:   | :---:   | :---:     | :---:      |
 | Sąrašo generavimas            | 0.01396 | 0.10231 | 0.87791 | 8.85506   | 90.23230   |
