@@ -126,18 +126,6 @@ void distinctStudents(vector<Studentas> &M, int ap, string vm, double &time_take
     string t=".\\varguoliai\\varguoliai";
     p += to_string(ap);
     t += to_string(ap);
-
-    // vector<Studentas>::iterator it1 = M.begin();
-    // vector<Studentas>::iterator it2;
-    // it2 = find_if(M.begin(), M.end(), isLessThan);
-    // for(it1; it1!=it2; ++it1){
-    //     Kietiakai.push_back(*it1);
-    //     ++size_1;
-    //     if (size_1%100000==0) cout << size_1 << endl;
-    // }
-    // M.erase(M.begin(), M.begin()+size_1);
-    // Varguoliai.swap(M);
-
     vector<Studentas>::iterator it;
     Kietiakai.swap(M);
     it = find_if(Kietiakai.begin(), Kietiakai.end(), isLessThan);
