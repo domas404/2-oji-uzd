@@ -122,25 +122,6 @@ void distinctStudents(deque<Studentas> &M, int ap, string vm, double &time_taken
     string t=".\\varguoliai\\varguoliai";
     p += to_string(ap);
     t += to_string(ap);
-
-    // deque<Studentas>::iterator it1 = M.begin();
-    // deque<Studentas>::iterator it2 = find_if(M.begin(), M.end(), isLessThan);
-    // for(it1; it1!=it2; ++it1){
-    //     Kietiakai.push_back(*it1);
-    //     M.pop_front();
-    // }
-    // int j=0;
-    // while (M[j].final >= 5){
-    //     Kietiakai.push_back(M[j]);
-    //     ++size_1;
-    //     ++j;
-    // }
-    // M.erase(M.begin(), M.begin()+size_1);
-    // cout << M[0].vardas << " " << M[0].final << endl;
-    // Varguoliai.assign(M.begin(), M.end()-1);
-    // Varguoliai.swap(M);
-    //size_2 = Varguoliai.size();
-
     deque<Studentas>::iterator it;
     Kietiakai.swap(M);
     it = find_if(Kietiakai.begin(), Kietiakai.end(), isLessThan);
