@@ -2,7 +2,7 @@
 
 Programos versija v0.5.1
 
-Ši versija skirta programos spartumo testavimui ir palyginimui, naudojant skirtingus konteinerius (std::vector, std::deque, std::list) duomenims saugoti.
+Ši versija skirta programos spartumo testavimui ir palyginimui, naudojant skirtingus duomenų saugojimo konteinerius (std::vector, std::deque, std::list).
 
 Sistemos parametrai:
 
