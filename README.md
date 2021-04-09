@@ -1,6 +1,6 @@
 # 2-oji-užduotis
 
-Programos versija v0.5
+Programos versija v0.5.1
 
 Ši versija skirta programos spartumo testavimui.
 
