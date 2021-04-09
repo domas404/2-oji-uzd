@@ -2,6 +2,8 @@
 
 Programos versija v0.5.1
 
+Ši versija skirta programos spartumo testavimui ir palyginimui, naudojant skirtingus duomenų saugojimo būdus.
+
 Sistemos parametrai:
 
       • CPU Intel i5-10300H 2.50GHz
