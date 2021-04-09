@@ -4,16 +4,16 @@ Programos versija v0.5
 
 Ši versija skirta programos spartumo testavimui.
 
-Testo rezultatai, kai:
-
-      • namų darbų skaičius kiekvienam studentui - 10;
-      • galutinis pažymys skaičiuojamas pagal vidurkį.
-      
 Sistemos parametrai:
 
       • CPU Intel i5-10300H 2.50GHz
       • RAM 16GB 2666MHz
       • SSD 512GB
+
+Testo rezultatai, kai:
+
+      • namų darbų skaičius kiekvienam studentui - 10;
+      • galutinis pažymys skaičiuojamas pagal vidurkį.
 
 | Vector         | 1'000   | 10'000  | 100'000 | 1'000'000 | 10'000'000 |
 | -------------- | :---:   | :---:   | :---:   | :---:     | :---:      |
