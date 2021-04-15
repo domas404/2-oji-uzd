@@ -30,7 +30,7 @@ float Mediana(int nd, vector<int> ND);
 float Vidurkis(int &nd, vector<int> &ND);
 void AssignVid(Studentas &A, int nd);
 void AssignMed(Studentas &A, int nd);
-void sortStudents(deque<Studentas> &M, int ap, double &time_taken);
+void sortStudents(deque<Studentas> &M, int ap);
 bool wayToSort(const Studentas &a, const Studentas &b);
 bool isLessThan(Studentas &i);
 
