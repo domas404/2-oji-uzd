@@ -14,8 +14,8 @@ void execusionTest(int ap, string title, int nd, string vm, string arGen){
         readFile(M, nd, title, ap, &AssignVid);
     else
         readFile(M, nd, title, ap, &AssignMed);
-    sortStudents(M, ap, time_2);
-    distinctStudents(M, Varguoliai, ap, vm, time_3);
+    sortStudents(M, ap);
+    distinctStudents(M, Varguoliai, ap, vm);
     
     auto pab = chrono::high_resolution_clock::now();
     double time_taken = chrono::duration_cast<chrono::nanoseconds>(pab - pr).count();
