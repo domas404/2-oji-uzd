@@ -1,8 +1,8 @@
 #include "header.h"
-#include "header_for_files.h"
+#include "fileHeader.h"
 
 // nurodomi rikiavimo kriterijai 
-bool wayToSort(Studentas &a, Studentas &b) {
+bool wayToSort(const Studentas &a, const Studentas &b) {
     return a.final > b.final;    // nurodoma rikiuoti pagal varda didejanciai (abeceles tvarka)
 }
 // ieskoma ribos, kuri skiria 'kietiakus' ir 'varguolius'
@@ -22,17 +22,17 @@ float Final(float vid, float egz){
 // funkcija, skaiciuojanti ivertinimu mediana
 float Mediana(int nd, vector<int> ND){
     int a, b;
-    float vid;
+    float med;
     if (nd%2==1){
         a = nd/2;
-        vid = ND[a];
+        med = ND[a];
     }
     else {
         a = nd/2-1;
         b = nd/2;
-        vid = (float)(ND[a] + ND[b])/2;
+        med = (float)(ND[a] + ND[b])/2;
     }
-    return vid;
+    return med;
 }
 // funkcija, skaiciuojanti ivertinimu vidurki
 float Vidurkis(int &nd, vector<int> &ND){
@@ -43,7 +43,7 @@ float Vidurkis(int &nd, vector<int> &ND){
     return (float)suma/nd;
 }
 // funkcija, kuri kreipiasi i vidurkio skaic. funkcija
-void AssignVid(Studentas &A, int &nd){
+void AssignVid(Studentas &A, int nd){
     float vid=0;
     vid = Vidurkis(nd, A.ND);
     A.final = Final(vid, A.egz);
