@@ -56,11 +56,11 @@ void AssignMed(Studentas &A, int nd){
     A.final = Final(med, A.egz);
 }
 // rusiuojami studentai
-void sortStudents(list<Studentas> &M, int ap, double &time_taken){
+void sortStudents(list<Studentas> &M, int ap){
     auto pr = chrono::high_resolution_clock::now();
     M.sort(wayToSort);
     auto pab = chrono::high_resolution_clock::now();
-    time_taken = chrono::duration_cast<chrono::nanoseconds>(pab - pr).count();
+    double time_taken = chrono::duration_cast<chrono::nanoseconds>(pab - pr).count();
     time_taken *= 1e-9;
     cout << setw(8) << right << ap << setw(50) << left << " studentu rikiavimas pagal gal. ivert. uztruko: ";
     cout << time_taken << " s" << endl;
