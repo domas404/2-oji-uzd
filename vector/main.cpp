@@ -1,5 +1,5 @@
 #include "header.h"
-#include "header_for_files.h"
+#include "fileHeader.h"
 
 int main(int argc, char **argv){
     string vm;
