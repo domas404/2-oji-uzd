@@ -1,5 +1,5 @@
-#ifndef HEADER_FOR_FILES_H
-#define HEADER_FOR_FILES_H
+#ifndef FILEHEADER_H
+#define FILEHEADER_H
 
 #include <fstream>
 
