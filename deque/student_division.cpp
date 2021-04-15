@@ -25,5 +25,4 @@ void distinctStudents(deque<Studentas> &Kietiakai, int ap, string vm, double &ti
     Kietiakai.clear();
     outputTime(ap, Varguoliai, t+".txt", " varguoliu", vm);
     Varguoliai.clear();
-    //outputTime(ap, Kietiakai, p+".txt", " studentu", vm);
 }
