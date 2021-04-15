@@ -2,7 +2,7 @@
 #include "fileHeader.h"
 
 // studentu skirstymas i dvi grupes (kietiakus ir varguolius)
-void distinctStudents(deque<Studentas> &Kietiakai, int ap, string vm, double &time_taken){
+void distinctStudents(deque<Studentas> &Kietiakai, int ap, string vm){
     auto pr = chrono::high_resolution_clock::now();
     deque<Studentas> Varguoliai;
 
@@ -12,7 +12,7 @@ void distinctStudents(deque<Studentas> &Kietiakai, int ap, string vm, double &ti
     Kietiakai.resize(Kietiakai.size()-Varguoliai.size());
 
     auto pab = chrono::high_resolution_clock::now();
-    time_taken = chrono::duration_cast<chrono::nanoseconds>(pab - pr).count();
+    double time_taken = chrono::duration_cast<chrono::nanoseconds>(pab - pr).count();
     time_taken *= 1e-9;
     cout << setw(8) << right << ap << setw(50) << left << " studentu skirstymas i dvi grupes uztruko: ";
     cout << fixed << time_taken << setprecision(6) << " s" << endl;
