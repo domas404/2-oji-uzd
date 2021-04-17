@@ -4,7 +4,7 @@
 // studentu skirstymas i dvi grupes (kietiakus ir varguolius) (vector)
 void distinctStudents(vector<Studentas> &M, int ap, string vm){
     auto pr = chrono::high_resolution_clock::now();
-
+    
     vector<Studentas> Kietiakai;
     vector<Studentas> Varguoliai;
     vector<Studentas>::iterator it;
