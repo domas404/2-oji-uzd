@@ -51,7 +51,7 @@ Skaičiavimų trukmės su std::vector konteineriu palyginimas, naudojant std::so
 | Rūšiavimas naudojant std::partition        | 0.00000 | 0.00100 | 0.01596 | 0.15658   | 1.54095    |
 | Rūšiavimas naudojant std::stable_partition | 0.00100 | 0.00535 | 0.06084 | 0.51182   | 5.16311    |
 
-Iš palyginmo matosi, jog sparčiausiai veikia std::partition.
+Matome, kad sparčiausiai veikia std::partition.
 
 Diegimas ir paleidimas:
 
