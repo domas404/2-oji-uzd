@@ -48,17 +48,12 @@ Diegimas ir paleidimas:
 
    Į komandinę eilutę įveskite šias komandas:
 
-        g++ -c calculations.cpp testing.cpp
-        g++ -o main main.cpp calculations.o testing.o
+        mingw32-make
+        ./main 10 v
         
-   Paleidžiant programą nurodykite:
+   Paleidžiant programą nurodomi:
       1) kiek generuojamame studentų sąraše kiekvienas studentas turi namų darbų;
       2) įvertinimų skaičiavimui naudoti vidurkį ar medianą [v/m].
    Pvz:
    
-        ./main 10 v
-        
-   Taip pat galite pasinaudoti makefile'u:
-      
-        mingw32-make
         ./main 10 v
