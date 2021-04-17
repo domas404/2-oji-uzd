@@ -14,6 +14,7 @@ Testo rezultatai, kai:
 
       • namų darbų skaičius kiekvienam studentui - 10;
       • galutinis pažymys skaičiuojamas pagal vidurkį.
+      • prieš skirstymą, studentai yra surikiuojami pagal galutinį įvertinimą
 
 | Vector                             | 1'000   | 10'000  | 100'000 | 1'000'000 | 10'000'000 |
 | ---------------------------------- | :---:   | :---:   | :---:   | :---:     | :---:      |
