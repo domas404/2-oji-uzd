@@ -2,6 +2,15 @@
 
 Programos versija v1.0
 
+Programos veikimas:
+
+Programa sugeneruoja (pasirinktinai) 5 skirtingų dydžių studentų sąrašus ir apskaičiuoja studentų galutinius
+įvertinimus pagal sugeneruotus duomenis (namų darbų ir egzamino įvertinimus).
+Pagal galutinius įvertinimus studentai suskirstomi į dvi grupes:
+
+      1) "kietiakai" - kurių galutinis įvertinimas >= 5;
+      2) "varguoliai" - kurių įvertinimas < 5.
+
 Ši versija skirta programos spartumo testavimui ir palyginimui, naudojant skirtingus duomenų saugojimo konteinerius (std::vector, std::deque, std::list).
 
 Sistemos parametrai:
@@ -9,6 +18,11 @@ Sistemos parametrai:
       • CPU Intel i5-10300H 2.50GHz
       • RAM 16GB 2666MHz
       • SSD 512GB
+
+Testuojama studentų skirstymo į dvi grupes sparta, naudojant dvi skirtingas strategijas:
+
+      1) Sukuriant du naujus konteinerius "kietiakai" ir "varguoliai", į kuriuos išskaidomas visų studentų duomenis saugantis konteineris.
+      2) Sukuriant vieną naują konteinerį "varguoliai", o pradinį naudojant kaip konteinerį "kietiakai", kurio talpa bus sumažinama priskyrus duomenis "varguoliams".
 
 Testo rezultatai, kai:
 
@@ -30,14 +44,6 @@ Testo rezultatai, kai:
 | ---------------------------------- | :---:   | :---:   | :---:   | :---:     | :---:      |
 | Skirstymas 1 strategija            | 0.00000 | 0.00399 | 0.05894 | 0.58437   | 6.00405    |
 | Skirstymas 2 strategija            | 0.00000 | 0.00199 | 0.02728 | 0.29258   | 2.88519    |
-
-Programos veikimas:
-
-Programa sugeneruoja 5 skirtingų dydžių studentų sąrašus ir apskaičiuoja studentų galutinius
-įvertinimus pagal sugeneruotus duomenis (namų darbų ir egzamino įvertinimus).
-Pagal galutinius įvertinimus studentai suskirstomi į dvi grupes:
-      1) "kietiakai" - kurių galutinis įvertinimas >= 5;
-      2) "varguoliai" - kurių įvertinimas < 5.
 
 Diegimas ir paleidimas:
 
