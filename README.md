@@ -1,6 +1,6 @@
 # 2-oji-užduotis
 
-Programos versija v0.5.2
+Programos versija v1.0
 
 Ši versija skirta programos spartumo testavimui ir palyginimui, naudojant skirtingus duomenų saugojimo konteinerius (std::vector, std::deque, std::list).
 
@@ -14,6 +14,13 @@ Testo rezultatai, kai:
 
       • namų darbų skaičius kiekvienam studentui - 10;
       • galutinis pažymys skaičiuojamas pagal vidurkį.
+
+| Vector                             | 1'000   | 10'000  | 100'000 | 1'000'000 | 10'000'000 |
+| ---------------------------------- | :---:   | :---:   | :---:   | :---:     | :---:      |
+| Skirstymas 1 strategija            |
+| Skirstymas 2 strategija            | 0.00000 | 0.00100 | 0.00982 | 0.09855   | 0.98102    |
+| 1 strategijos visas veikimo laikas |
+| 2 strategijos visas veikimo laikas | 0.02316 | 0.20158 | 1.75329 | 18.47490  | 191.93179  |
 
 | Vector                      | 1'000   | 10'000  | 100'000 | 1'000'000 | 10'000'000 |
 | --------------------------- | :---:   | :---:   | :---:   | :---:     | :---:      |
