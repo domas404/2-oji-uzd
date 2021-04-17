@@ -7,7 +7,7 @@ bool wayToSort(const Studentas &a, const Studentas &b) {
 }
 // ieskoma ribos, kuri skiria 'kietiakus' ir 'varguolius'
 bool isLessThan(Studentas &i){
-    return(i.final < 5);
+    return(i.final >= 5);
 }
 // atsitiktiniu skaiciu generavimo funkcija
 double myRandom(){
