@@ -27,7 +27,7 @@ float Final(float vid, float egz);
 float Mediana(int nd, vector<int> &ND);
 float Vidurkis(int nd, vector<int> &ND);
 
-void partitionStudents(vector<Studentas> &M, int ap, vector<Studentas>::iterator &it);
+void partitionStudents(vector<Studentas> &M, vector<Studentas>::iterator &it, int ap);
 
 void sortStudents(vector<Studentas> &M, int ap);
 void sortStudents(deque<Studentas> &M, int ap);
