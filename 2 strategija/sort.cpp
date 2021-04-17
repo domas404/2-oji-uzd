@@ -11,7 +11,7 @@ void sortStudents(vector<Studentas> &M, int ap){
     cout << setw(8) << right << ap << setw(50) << left << " studentu rikiavimas pagal gal. ivert. uztruko: ";
     cout << time_taken << " s" << endl;
 }
-// rusiuojami vector elementai
+// rusiuojami deque elementai
 void sortStudents(deque<Studentas> &M, int ap){
     auto pr = chrono::high_resolution_clock::now();
     sort(M.begin(), M.end(), wayToSort);
@@ -21,7 +21,7 @@ void sortStudents(deque<Studentas> &M, int ap){
     cout << setw(8) << right << ap << setw(50) << left << " studentu rikiavimas pagal gal. ivert. uztruko: ";
     cout << time_taken << " s" << endl;
 }
-// rusiuojami vector elementai
+// rusiuojami list elementai
 void sortStudents(list<Studentas> &M, int ap){
     auto pr = chrono::high_resolution_clock::now();
     M.sort(wayToSort);
