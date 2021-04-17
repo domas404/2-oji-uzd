@@ -13,8 +13,8 @@ Pagal galutinius įvertinimus studentai suskirstomi į dvi grupes:
 
 Testuojama studentų skirstymo į dvi grupes sparta, naudojant dvi skirtingas strategijas:
 
-      1) Sukuriant du naujus konteinerius "kietiakai" ir "varguoliai", į kuriuos išskaidomas visų studentų duomenis saugantis konteineris.
-      2) Sukuriant vieną naują konteinerį "varguoliai", o pradinį naudojant kaip konteinerį "kietiakai", kurio talpa bus sumažinama priskyrus duomenis "varguoliams".
+1) Sukuriant du naujus konteinerius "kietiakai" ir "varguoliai", į kuriuos išskaidomas visų studentų duomenis saugantis konteineris.
+2) Sukuriant vieną naują konteinerį "varguoliai", o pradinį naudojant kaip konteinerį "kietiakai", kurio talpa bus sumažinama priskyrus duomenis "varguoliams".
 
 Sistemos parametrai:
 
@@ -74,6 +74,7 @@ Ankstesnės programos versijos:
 
       v0.1 - programa skirta apskaičiuti studentų galutinius įvertinimus pagal vartotojo suvestus duomenis;
       v0.2 - programoje implementuota galimybė duomenis nuskaityti iš failo;
-      v0.3 - pakeista programos struktūra, t.y. programa suskaidyta į kelis *.cpp ir *.hpp failus. Taip pat duomenų nuskaityme ir įvedime implementuotas išimčių valdymas (exceptions).
+      v0.3 - pakeista programos struktūra, t.y. programa suskaidyta į kelis *.cpp ir *.hpp failus. Taip pat duomenų nuskaityme
+      ir įvedime implementuotas išimčių valdymas (exceptions).
       v0.4 - studentų sąrašas pradedėtas skirstyti į dvi grupes, testuojant programos veikimo spartą;
       v0.5 - testuojama programos sparta, duomenų saugojimui naudojant skirtingo tipo konteinerius (std::vector, std::deque, std::list).
