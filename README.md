@@ -19,22 +19,22 @@ Testo rezultatai, kai:
 | ---------------------------------- | :---:   | :---:   | :---:   | :---:     | :---:      |
 | Skirstymas 1 strategija            | 0.00100 | 0.00199 | 0.02393 | 0.23096   | 2.28685    |
 | Skirstymas 2 strategija            | 0.00000 | 0.00100 | 0.00982 | 0.09855   | 0.98102    |
-| 1 strategijos visas veikimo laikas | 0.02718 | 0.18095 | 1.75826 | 18.41501  | 192.59553  |
-| 2 strategijos visas veikimo laikas | 0.02316 | 0.20158 | 1.75329 | 18.47490  | 191.93179  |
+| 1 str. visos progr. veikimo laikas | 0.02718 | 0.18095 | 1.75826 | 18.41501  | 192.59553  |
+| 2 str. visos progr. veikimo laikas | 0.02316 | 0.20158 | 1.75329 | 18.47490  | 191.93179  |
 
 | Deque                              | 1'000   | 10'000  | 100'000 | 1'000'000 | 10'000'000 |
 | ---------------------------------- | :---:   | :---:   | :---:   | :---:     | :---:      |
 | Skirstymas 1 strategija            | 0.00000 | 0.00200 | 0.03036 | 0.27351   | 2.76711    |
 | Skirstymas 2 strategija            | 0.00000 | 0.00200 | 0.01166 | 0.14151   | 1.19002    |
-| 1 strategijos visas veikimo laikas | 0.03103 | 0.17845 | 1.76902 | 18.51470  | 195.09661  |
-| 2 strategijos visas veikimo laikas | 0.02170 | 0.18563 | 1.78000 | 18.75997  | 192.80805  |
+| 1 str. visos progr. veikimo laikas | 0.03103 | 0.17845 | 1.76902 | 18.51470  | 195.09661  |
+| 2 str. visos progr. veikimo laikas | 0.02170 | 0.18563 | 1.78000 | 18.75997  | 192.80805  |
 
 | List                               | 1'000   | 10'000  | 100'000 | 1'000'000 | 10'000'000 |
 | ---------------------------------- | :---:   | :---:   | :---:   | :---:     | :---:      |
 | Skirstymas 1 strategija            | 0.00000 | 0.00399 | 0.05894 | 0.58437   | 6.00405    |
 | Skirstymas 2 strategija            | 0.00000 | 0.00199 | 0.02728 | 0.29258   | 2.88519    |
-| 1 strategijos visas veikimo laikas | 0.02112 | 0.16184 | 1.58350 | 15.68062  | 158.14655  |
-| 2 strategijos visas veikimo laikas | 0.02066 | 0.16116 | 1.54519 | 15.71893  | 157.29910  |
+| 1 str. visos progr. veikimo laikas | 0.02112 | 0.16184 | 1.58350 | 15.68062  | 158.14655  |
+| 2 str. visos progr. veikimo laikas | 0.02066 | 0.16116 | 1.54519 | 15.71893  | 157.29910  |
 
 Programos veikimas:
 
